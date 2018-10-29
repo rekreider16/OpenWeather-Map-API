@@ -19,9 +19,6 @@ namespace OpenWeatherMap_API
             Console.Clear();
             GetWeather(int.Parse(userResponse), api);
 
-            
-
-
             Console.ReadLine();
         }
 
@@ -31,7 +28,7 @@ namespace OpenWeatherMap_API
             string weatherJSON = webClient.DownloadString("http://api.openweathermap.org/data/2.5/weather?zip=" + zip + "&units=imperial&APPID=" + API);
             JObject jo = JObject.Parse(weatherJSON);
             double tempMath = double.Parse(jo.GetValue("main")["temp"].ToString());
-            Console.WriteLine("The temperature in " + zip + " is " + tempMath);
+            Console.WriteLine("The temperature in " + zip + " is " + tempMath + "degrees Farenheit.");
         }
     }
 
